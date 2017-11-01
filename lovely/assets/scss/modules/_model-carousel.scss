@@ -1,0 +1,37 @@
+
+.model-slider {
+	li {
+		
+		> img {
+			width: 100%;
+		}
+	}
+}
+
+.lSSlideOuter {
+	.lSPager.lSGallery {
+		margin-right: auto;
+		margin-left: auto; 
+		li {
+			&:hover, &.active {
+				border-radius: 0;
+			}
+			img {
+				width: 100%;
+			}
+		} 
+	}
+
+	.lSAction {
+		visibility: hidden;
+		opacity: 0;
+		@include transition(0.3s);
+	}
+	&:hover {
+		.lSAction {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+

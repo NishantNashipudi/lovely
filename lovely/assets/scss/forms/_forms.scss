@@ -1,0 +1,546 @@
+/*--------------------------------------------------------------
+## Buttons
+--------------------------------------------------------------*/
+@import "buttons";
+
+/*--------------------------------------------------------------
+## Fields
+--------------------------------------------------------------*/
+@import "fields";
+
+/*--------------------------------------------------------------
+## Comment-form
+--------------------------------------------------------------*/
+@import "comment-form";
+ 
+/*--------------------------------------------------------------
+## Custom Style
+--------------------------------------------------------------*/
+
+.book-form-box {
+	background: $color__blue;
+	@include transition(0.3s);
+}
+
+.book-form {
+	color: $color__white;
+	font-size: 18px;
+	line-height: 1.2em;
+	padding: 19px 0;
+	@include transition(0.3s);
+	@include flexbox;
+	@include flex-wrap(wrap);
+	@include justify-content(space-between);
+	@include media-breakpoint-up(lg) {
+		@include align-items(flex-end); 
+		padding: 24px 0 35px;
+	}
+	> * {
+		flex: 0 1 auto;
+	}
+
+
+
+	&__title {
+		font-size: 28px;
+		line-height: 1.2em;
+		font-weight: bold;
+		margin: 20px 10px 0 0;
+
+		@include media-breakpoint-up(lg) {
+			font-size: 38px;
+			line-height: 1.2em;
+			margin: 0 15px 0 0;
+			position: relative;
+			top: -5px;
+		}
+		@include media-breakpoint-down(sm) {
+			margin: 0 0 10px 0;
+		}
+
+		small {
+			font-size: 16px;
+			line-height: 1.2em; 
+			font-weight: normal;
+			
+			@include media-breakpoint-up(md) {
+				display: block;
+				font-size: 18px;
+			}
+		}
+	}
+
+	&__block-select {
+		padding-top: 5px;
+
+		@include flexbox;
+		@include flex-wrap(wrap);
+		@include justify-content(center);
+		@include media-breakpoint-down(md) {
+			padding-bottom: 20px;
+		}
+		@include media-breakpoint-down(sm) {
+			flex: 0 1 100%;
+			padding-bottom: 10px;
+		}
+		.inner-block {
+			width: 100%;
+			margin-bottom: 10px;
+
+			&:first-child {
+				@include media-breakpoint-up(sm) {
+					margin-right: 11px;
+				} 
+			}
+			@include media-breakpoint-up(md) {
+				width: auto;
+				margin-bottom: 0;
+			} 
+		}
+		.second-block {
+			select {
+				min-width: 50px;
+			}
+		}
+		select {
+			color: $color__text-regular;
+			display: block;
+			float: left;
+			margin-right: 5px;
+			position: relative;
+
+			@include media-breakpoint-up(sm) {
+				margin-right: 11px;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+			&[name="location"] {
+				min-width: 142px;
+				@include media-breakpoint-up(xl) {
+					min-width: 340px;
+				}
+				@include media-breakpoint-down(sm) {
+					width: 100%;
+				}
+			}
+			&[name="datetime"], 
+			&[name="day"] {
+				@include media-breakpoint-up(sm) {
+					min-width: 90px;
+				}
+				
+			}
+			&[name="time"] {
+				@include media-breakpoint-up(sm) {
+					min-width: 142px;
+				}	
+			}
+		}
+	}
+	
+	&__btn {
+		flex: 0 1 100%;
+		@include media-breakpoint-up(lg) {
+			flex: 0 1 auto;
+		}
+		.btn {
+			color: $color__text-regular;
+			box-shadow: $button__box-shadow;
+			@include linear-gradient(#cacdd3, #7d838e);
+			@include media-breakpoint-down(xs) {
+				width: 100%;
+			}
+		}
+	}
+ 
+	&__text {
+		display: block; 
+		font-size: 16px;
+		line-height: 1.2em;
+		padding: 0 0 5px;
+		font-weight: normal;
+		
+		@include media-breakpoint-up(lg) {
+			padding: 5px 0 6px;
+			font-size: 18px;
+		}
+	}
+}
+
+.wrap-form {
+	h1 {
+		text-align: center;
+	}
+}
+.contact-form {
+	padding-top: 21px;
+	margin: 0 auto;
+	max-width: 960px;
+	@include media-breakpoint-up(md) {
+		.page__single-post & {
+			margin: 0 -7px;
+		}
+	}
+
+	.required {}
+	.input-wrapper {
+		position: relative;
+		margin-bottom: 14px;
+		padding: 0;
+		width: 100%;
+		&.first-child {
+			padding-left: 0;
+		}
+		&.last-child {
+			padding-right: 0;  
+		}
+		label {
+			position: absolute;
+			top: 50%;
+			right: 10px;
+		}
+		input {
+			width: 100%;
+		}
+		@include media-breakpoint-up(md) {
+			float: left;
+			width: 50%;
+			padding: 0 7px;
+
+			.page__single-post & {
+				padding: 0 7px;
+			}
+		}
+	}
+	.textarea-custom {
+		max-width: 100%;
+		min-height: 256px;
+	}
+	.textarea-wrapper {
+		clear: both;
+		padding-bottom: 34px;
+		overflow: hidden;
+		@include media-breakpoint-up(md) {
+			.page__single-post & {
+				padding: 0 7px 34px;
+			}
+		}
+	}
+	.btn-wrapper {
+		padding-right: 33px;
+		padding-left: 33px;
+		text-align: center;
+		
+		@include media-breakpoint-up(md) {
+			padding: 0 7px;
+		}
+	}
+	.btn-form {
+		
+	}
+}
+
+form label.error {
+	display: block;
+	color: #ff0000;
+    font-size: 14px !important;
+    margin-top: -15px;
+	opacity: 1 !important;
+}
+#success, #error, #subscribeSuccess, #subscribeError {
+	display: none;
+	height: 70px;
+}
+#subscribeSuccess, #subscribeError {
+	height: 30px;
+}
+#success span, #error span, #subscribeSuccess span, #subscribeError span{
+	display: block;
+}
+#success span p, #error span p, #subscribeSuccess span p, #subscribeError span p {
+	margin-top: 15px;
+}
+#success span p, #subscribeSuccess span p {
+	color: #2990d6;
+}
+#error span p, #subscribeError span p{
+	color: #c0392b;
+}
+
+
+.order-details-form {
+	z-index: 100;
+	box-sizing: border-box;
+	padding: 7px;
+	margin: 0 auto;
+	font-size: 16px; 
+	line-height: 1.2em;
+	font-weight: 300;
+	text-align: center;
+	background: #f2f2f2;
+	box-shadow: 2px 0 40px rgba(0,0,0,0.1);
+
+	.inner-form {
+		text-align: center;
+		padding: 20px 20px 30px;
+		background: $color__white;
+		padding-bottom: 34px;
+		@include media-breakpoint-up(lg) {
+			padding: 40px 70px 30px;
+		}
+
+		h3 {
+			margin-bottom: 44px;
+		}
+
+		&__elements {
+			padding-bottom: 35px;
+			text-align: left;
+			@include flexbox();
+			@include flex-direction(column);
+			
+			@include media-breakpoint-up(md) {
+				@include flex-direction(row);
+				@include justify-content(space-between); 
+			}
+		}
+	}
+
+	h5 {
+		font-weight: bold;
+		margin-bottom: 18px;
+	}
+	.inner-half {
+		margin-bottom: 40px;
+		@include media-breakpoint-up(md) {
+			margin-bottom: 0;
+			max-width: 46.7%;
+			@include flex(0 1 46.7%); 
+		}
+		&__width {
+			@include flexbox();
+			@include flex-direction(column);
+
+			@include media-breakpoint-up(sm) {
+				@include flex-direction(row);
+				@include justify-content(space-between); 
+			}
+
+			> div {
+				
+				@include media-breakpoint-up(sm) {
+					@include flex(0 1 49%);
+					max-width: 49%;
+				}
+			}
+			input {
+				margin-bottom: 14px;
+			}
+		}
+	}
+	.passengers-luggage {
+		@include flexbox();
+
+		> div {
+			@include flex(0 1 32%);
+			max-width: 32%;
+			margin-right: 2%;
+
+			&.carseat {
+				span {
+					height: 23px;
+				}
+			}
+		}
+		span {
+			display: block;
+			height: 31px;
+		}
+	}
+	div {
+		display: block;
+		position: relative;
+		font-weight: 300;
+		margin: 0;
+
+		i {
+			position: absolute;
+			top: 9px;
+			right: 13px;
+			font-size: 20px;
+			line-height: 1.2em;
+		}
+		&.wishes {
+			padding-top:0 ;
+			float: left;
+			input {
+				margin-bottom: 0;
+			}
+		}
+		&.select-vehicle {
+			padding-bottom: 8px;
+		}
+		&.location-drop-off {
+			margin-top: 5px;
+			margin-bottom: 0;
+		}
+		&.checkbox-div {
+			padding-bottom: 21px;
+		}
+		&.payment {
+			padding-top: 23px;
+
+			span {
+				display: inline-block;
+				margin-right: 10px;
+			}
+			select {
+				display: inline-block;
+				max-width: 159px;
+			}
+		}
+		&.stop-location {
+			display: block;
+			clear: both;
+			padding-bottom: 7px;
+			&:last-child {
+				padding-bottom: 20px;
+			}
+			.stop-location-new {
+				clear: both;
+				padding-top: 5px;
+				padding-bottom: 10px;
+			}
+			a {
+				display: inline-block;
+				position: relative;
+				i{
+					color: $regular_link_color;
+					right: auto;
+					top: -6px;
+					left: 0;
+					font-weight: bold;
+					font-size: 45px;
+					line-height: 30px;
+					text-decoration: none;
+					height: 30px;
+
+					&.icon-plus-black-symbol {
+						font-size: 15px;
+						line-height: 30px;
+					}
+				}
+				span {
+					text-decoration: underline;
+				}
+				&.remove_field {
+					padding-left: 20px;
+				}
+			}
+			input {
+				margin-top: 5px;
+				margin-bottom: 0;
+			}
+		}
+		&.your-phone {
+			margin-bottom: 0;
+		}
+	}
+	select {
+		border: 1px solid $color__border-input;
+		border-radius: 0;
+	}
+	a {
+		color: $color__text-regular;
+
+		&:hover {
+			color: $regular_link_color;
+		}
+	}
+	.text-element {
+		font-weight: 300;
+		overflow: hidden;
+		margin-top: -4px;
+		padding: 0 0 16px;
+
+		.add {
+			float: left;
+			span {
+				text-decoration: underline;
+			}
+			i {
+				display: inline-block;
+				position: relative;
+				top: 2px;
+				margin-right: 1px;
+				color: $regular_link_color;
+			}
+		}
+		.link-right {
+			float: right;
+			text-decoration: underline;
+		}
+
+		&:after {
+			display: block;
+			content: "";
+			width: 100%;
+			clear: both;
+		}
+	}
+	input {
+		margin-bottom: 8px;
+	}
+	button {
+		font-size: 18px;
+		padding: 18px 45px 18px;
+	}
+	input[type='text'], 
+	input[type='tel'],
+	select,
+	textarea {
+		font-size: 16px;
+		line-height: 1.2em;
+		font-weight: 300; 
+		padding: 9px 40px 11px 13px;
+		width: 100%;
+	}
+	.intl-tel-input {
+		display: block;
+		.selected-flag .iti-arrow {
+			border-top-color: #111111;
+		}
+	}
+	.form-control {
+		height: auto;
+	}
+	.country-list {
+		font-size: 16px;
+		line-height: 1.2em;
+		font-weight: 300; 
+	}
+	textarea {
+		min-height: 156px;
+		height: 241px;
+	}
+	.textarea-text {
+		font-size: 14px;
+	}
+	input[type="checkbox"],
+	input[type="radio"] {
+		position: relative;
+		top: 4px;
+
+		&:after {
+			position: absolute;
+			// content: "";
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: $color__white;
+			border: 1px solid $color__border-input;
+		}
+	}
+}
